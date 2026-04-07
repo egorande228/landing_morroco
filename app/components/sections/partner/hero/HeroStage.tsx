@@ -19,13 +19,28 @@ export default function HeroBlueStage() {
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[180px] bg-[radial-gradient(circle_at_50%_100%,rgba(255,255,255,0.14),transparent_60%)]" />
 
+      {/* Moroccan Flag Star - Centered */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        <svg
+          className="h-60 w-60"
+          fill="none"
+          stroke="#006233"
+          strokeWidth="3.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          viewBox="120 45 225 195"
+        >
+          <path d="M 225 75 L 269.0835 210.6765 L 153.6705 126.8235 L 296.3295 126.8235 L 180.9165 210.6765 Z" />
+        </svg>
+      </div>
+
       <div className="relative z-10 flex h-full flex-col items-center justify-end px-8 pb-12">
         <p className="max-w-[980px] text-center text-[34px] font-normal leading-[1.12] tracking-[-0.05em] text-white">
           Partnering with top tier brands to revolutionize the E-gaming industry.
         </p>
 
         <div className="mt-8 w-full overflow-hidden py-5">
-          <div className="hero-partner-marquee flex min-w-max items-start gap-16">
+          <div className="hero-partner-marquee flex flex-nowrap items-start gap-16">
             {[...heroPartnerItems, ...heroPartnerItems].map((item, index) => (
               <HeroPartnerItem
                 key={`${item.id}-${index}`}

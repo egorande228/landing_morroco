@@ -34,31 +34,42 @@
   /* =========================
      COLORS
   ========================= */
-  --color-primary: #c1272d;
-  --color-primary-hover: #ff000d;
-  --color-primary-soft: rgba(193, 39, 45, 0.12);
+  /* main site accent */
+  --color-primary: #c60b0b;
+  --color-primary-hover: #e63946;
+  --color-primary-soft: rgba(198, 11, 11, 0.12);
 
-  --color-accent: #006233;
-  --color-accent-soft: rgba(0, 98, 51, 0.12);
+  /* green accent for highlighted text */
+  --color-accent: #009e60;
+  --color-accent-hover: #00b07a;
+  --color-accent-soft: rgba(0, 158, 96, 0.14);
+
+  /* stage only */
+  --color-stage: #c1272d;
+  --color-stage-hover: #ff3b30;
+  --color-stage-soft: rgba(193, 39, 45, 0.14);
 
   --color-white: #ffffff;
   --color-black: #000000;
 
-  --color-bg: #000000;
-  --color-fg: #ffffff;
+  --color-bg: #ffffff;
+  --color-fg: #111111;
 
-  --color-surface: #f5f5f5;
-  --color-surface-2: #ececec;
+  --color-surface: #f6f6f6;
+  --color-surface-2: #ededed;
 
   --color-border: rgba(0, 0, 0, 0.08);
-  --color-muted: rgba(0, 0, 0, 0.58);
+  --color-muted: rgba(0, 0, 0, 0.5);
+
+  /* navbar */
+  --color-nav-bg: rgba(255, 255, 255, 0.92);
+  --color-nav-border: rgba(0, 0, 0, 0.08);
 
   /* =========================
      EFFECTS
   ========================= */
-
-  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.08);
-  --shadow-heavy: 0 40px 100px rgba(0, 0, 0, 0.18);
+  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.35);
+  --shadow-heavy: 0 40px 100px rgba(0, 0, 0, 0.55);
 
   --blur-soft: blur(12px);
   --blur-heavy: blur(24px);
@@ -86,3 +97,20 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+.hero-partner-marquee {
+  animation: hero-partner-scroll 28s linear infinite;
+  will-change: transform;
+}
+
+.hero-partner-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes hero-partner-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
