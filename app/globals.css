@@ -1,26 +1,88 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* =========================
+     CONTAINERS
+  ========================= */
+  --container-main: 1100px;
+  --text-max: 620px;
+
+  /* =========================
+     SPACING
+  ========================= */
+  --section-padding-y: clamp(80px, 10vw, 140px);
+  --section-padding-x: clamp(16px, 4vw, 64px);
+
+  --card-padding: 28px;
+  --card-gap: 20px;
+
+  /* =========================
+     TYPOGRAPHY
+  ========================= */
+  --text-hero: clamp(48px, 7vw, 84px);
+  --text-title: clamp(32px, 4vw, 56px);
+  --text-subtitle: clamp(20px, 2.4vw, 28px);
+  --text-body: clamp(15px, 1.2vw, 18px);
+  --text-small: 13px;
+
+  /* =========================
+     RADIUS
+  ========================= */
+  --radius-pill: 9999px;
+  --radius-card: 28px;
+
+  /* =========================
+     COLORS
+  ========================= */
+  --color-primary: #c1272d;
+  --color-primary-hover: #ff000d;
+  --color-primary-soft: rgba(193, 39, 45, 0.12);
+
+  --color-accent: #006233;
+  --color-accent-soft: rgba(0, 98, 51, 0.12);
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --color-bg: #000000;
+  --color-fg: #ffffff;
+
+  --color-surface: #f5f5f5;
+  --color-surface-2: #ececec;
+
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-muted: rgba(0, 0, 0, 0.58);
+
+  /* =========================
+     EFFECTS
+  ========================= */
+
+  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.08);
+  --shadow-heavy: 0 40px 100px rgba(0, 0, 0, 0.18);
+
+  --blur-soft: blur(12px);
+  --blur-heavy: blur(24px);
+
+  /* =========================
+     TRANSITIONS
+  ========================= */
+  --transition-fast: 200ms ease;
+  --transition-base: 300ms ease;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* =========================
+   BASE
+========================= */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: var(--color-bg);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
 }
+
