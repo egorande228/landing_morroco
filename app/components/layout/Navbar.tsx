@@ -1,10 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
-import NavItem from "@/app/components/layout/NavItem";
-import { useLanguage } from "@/app/components/providers/LanguageProvider";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
+import NavItem from "@/app/components/layout/NavItem";
+import { useLanguage } from "../providers/LanguageProvider";
 
 export default function Navbar() {
   const { dictionary } = useLanguage();
@@ -34,7 +34,7 @@ export default function Navbar() {
 
         <nav
           dir="ltr"
-          className="mx-auto flex h-[clamp(48px,6vw,56px)] w-[min(560px,100%)] items-center rounded-full border border-[var(--color-border)] bg-[var(--color-bg)] px-1"
+          className="mx-auto flex h-[clamp(48px,6vw,56px)] w-[min(560px,100%)] items-center rounded-full border border-[var(--color-nav-border)] bg-[var(--color-white)] px-1 backdrop-blur-md"
         >
           <Link href="/" className="flex h-full flex-1">
             <NavItem label={dictionary.nav.home} active={pathname === "/"} />
@@ -56,9 +56,12 @@ export default function Navbar() {
         </nav>
 
         <div className="justify-self-end">
-          <button className="text-[clamp(13px,1.4vw,16px)] font-medium leading-none text-[var(--color-fg)] tracking-[-0.03em] transition-colors duration-300 hover:text-[var(--color-accent)]">
+          <Link
+            href="/partner#final-cta"
+            className="text-[clamp(13px,1.4vw,16px)] font-medium leading-none tracking-[-0.03em] text-[var(--color-fg)] transition-colors duration-300 hover:text-[var(--color-accent)]"
+          >
             {dictionary.nav.cta}
-          </button>
+          </Link>
         </div>
       </div>
     </header>

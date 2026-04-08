@@ -16,7 +16,7 @@ export default function PhoneData({
     <div className="relative h-full overflow-hidden bg-[linear-gradient(180deg,#d61f2c_0%,#8d0f17_24%,#120203_50%,#0b0b0c_100%)] text-[var(--color-white)]">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-[-12%] top-[-8%] h-[180px] w-[180px] rounded-full bg-[var(--color-white)]/10 blur-[60px]" />
-        <div className="absolute right-[-10%] top-[12%] h-[160px] w-[160px] rounded-full bg-[var(--color-primary)]/18 blur-[56px]" />
+        <div className="absolute right-[-10%] top-[12%] h-[160px] w-[160px] rounded-full bg-[#006233]/18 blur-[56px]" />
         <div className="absolute left-1/2 top-[42%] h-[140px] w-[86%] -translate-x-1/2 rounded-full bg-[var(--color-black)]/60 blur-[42px]" />
       </div>
 
@@ -63,17 +63,39 @@ export default function PhoneData({
                   <linearGradient id="heroAffiliateStroke" x1="0" y1="0" x2="1" y2="0">
                     <stop offset="0%" stopColor="rgba(255,255,255,0.35)" />
                     <stop offset="55%" stopColor="rgba(255,255,255,0.92)" />
-                    <stop offset="100%" stopColor="rgba(255,193,0,0.95)" />
+                    <stop offset="100%" stopColor="rgba(0,98,51,0.95)" />
                   </linearGradient>
+
                   <linearGradient id="heroAffiliateFill" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stopColor="rgba(255,255,255,0.22)" />
                     <stop offset="100%" stopColor="rgba(255,255,255,0)" />
                   </linearGradient>
                 </defs>
 
-                <line x1="0" y1="16" x2="240" y2="16" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-                <line x1="0" y1="45" x2="240" y2="45" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-                <line x1="0" y1="74" x2="240" y2="74" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+                <line
+                  x1="0"
+                  y1="16"
+                  x2="240"
+                  y2="16"
+                  stroke="rgba(255,255,255,0.08)"
+                  strokeWidth="1"
+                />
+                <line
+                  x1="0"
+                  y1="45"
+                  x2="240"
+                  y2="45"
+                  stroke="rgba(255,255,255,0.08)"
+                  strokeWidth="1"
+                />
+                <line
+                  x1="0"
+                  y1="74"
+                  x2="240"
+                  y2="74"
+                  stroke="rgba(255,255,255,0.08)"
+                  strokeWidth="1"
+                />
 
                 <path
                   d="M0 78 C18 74, 24 66, 40 62 C55 58, 68 64, 82 54 C96 44, 108 34, 124 36 C140 38, 150 50, 164 40 C180 28, 194 12, 210 16 C224 20, 232 18, 240 10 L240 90 L0 90 Z"
@@ -90,7 +112,7 @@ export default function PhoneData({
 
                 <circle cx="82" cy="54" r="3.5" fill="rgba(255,255,255,0.85)" />
                 <circle cx="164" cy="40" r="3.5" fill="rgba(255,255,255,0.9)" />
-                <circle cx="240" cy="10" r="4" fill="rgb(255,193,0)" />
+                <circle cx="240" cy="10" r="4" fill="#006233" />
               </svg>
             </div>
 

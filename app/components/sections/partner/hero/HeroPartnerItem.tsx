@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import type { HeroPartnerItem } from "@/lib/heroBlueStageData";
+import type { HeroPartnerItem } from "@/lib/heroStageData";
 
 type HeroPartnerItemProps = {
   item: HeroPartnerItem;

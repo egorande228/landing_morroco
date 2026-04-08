@@ -1,7 +1,7 @@
 import BackgroundGrid from "@/app/components/ui/BackgroundGrid";
 import PartnerHero from "../components/sections/partner/hero/PartnerHero";
-import BenefitsSection from "../components/sections/partner/benefits/BenefitSection";
 import WhyUsSection from "../components/sections/partner/whyus/WhyUsSection";
+import FinalCTA from "../components/sections/partner/finalCTA/page";
 
 export default function PartnerPage() {
   return (
@@ -9,7 +9,7 @@ export default function PartnerPage() {
   <BackgroundGrid/>
   <PartnerHero />
   <WhyUsSection />
-  <BenefitsSection/>
+  <FinalCTA/>
 </main>
   );
 }

@@ -1,125 +1,113 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { useLanguage } from "@/app/components/providers/LanguageProvider";
 import WhyUsCard from "./WhyUsCard";
+import { getWhyUsData } from "./WhyUsData";
 
-const cards = [
-  {
-    title: "Flexible models",
-    text: "Work with structures that adapt to your strategy and scale with your growth.",
+const headingMotion = {
+  initial: {
+    opacity: 0,
+    y: 32,
+    filter: "blur(10px)",
   },
-  {
-    title: "Clear tracking",
-    text: "Understand performance, activity, and results through a cleaner system.",
+  whileInView: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
   },
-  {
-    title: "Real support",
-    text: "Grow with guidance and onboarding that actually help you move forward.",
+  viewport: {
+    once: true,
+    amount: 0.25,
   },
-];
+  transition: {
+    duration: 0.85,
+    ease: [0.22, 1, 0.36, 1] as const,
+  },
+};
 
-function clamp(v: number, min: number, max: number) {
-  return Math.min(Math.max(v, min), max);
-}
+const cardsContainerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.14,
+      delayChildren: 0.08,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: {
+    opacity: 0,
+    y: 56,
+    scale: 0.965,
+    filter: "blur(12px)",
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.95,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  },
+};
 
 export default function WhyUsSection() {
-  const ref = useRef<HTMLElement | null>(null);
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    function onScroll() {
-      if (!ref.current) return;
-
-      const rect = ref.current.getBoundingClientRect();
-      const vh = window.innerHeight;
-
-      const total = rect.height - vh;
-      if (total <= 0) return;
-
-      const scrolled = clamp(-rect.top, 0, total);
-      setProgress(scrolled / total);
-    }
-
-    onScroll();
-    window.addEventListener("scroll", onScroll);
-    window.addEventListener("resize", onScroll);
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, []);
+  const { dictionary: t } = useLanguage();
+  const whyUsItems = getWhyUsData(t);
 
   return (
-    <section
-      ref={ref}
-      className="relative h-[340vh] px-[var(--section-padding-x)]"
-    >
-      <div className="sticky top-0 flex min-h-screen items-center">
-        <div className="mx-auto w-full max-w-[var(--container-main)]">
+    <section id="why-us" className="px-6 py-24 md:px-10">
+      <div className="mx-auto max-w-[1320px]">
+        <div className="text-center">
+          <motion.div
+            {...headingMotion}
+            className="inline-flex rounded-full border border-black/10 bg-white px-6 py-3 text-[16px] font-medium uppercase tracking-[0.18em] text-[var(--color-accent)] shadow-[0_12px_30px_rgba(0,0,0,0.06)]"
+          >
+            {t.whyUs.badge}
+          </motion.div>
 
-          {/* ================= HEADER ================= */}
-          <div className="flex flex-col items-center text-center">
-            <div className="inline-flex rounded-full border border-[var(--color-border)] px-4 py-2 text-[var(--text-small)] uppercase tracking-[0.16em] text-[var(--color-muted)]">
-              Why us
-            </div>
-
-            <h2 className="mt-6 max-w-[var(--text-max)] text-[var(--text-title)] font-medium leading-[1.05] tracking-[-0.04em] text-[var(--color-fg)]">
-              Experience a partnership model built for clarity and growth.
-            </h2>
-          </div>
-
-          {/* ================= CARDS ================= */}
-          <div className="relative mt-[160px] h-[420px]">
-            {cards.map((card, i) => {
-              const intro = 0.15;
-              const totalCards = cards.length;
-              const cardZone = 1 - intro;
-              const phase = cardZone / totalCards;
-
-              const start = intro + i * phase;
-              const end = start + phase;
-
-              const local = clamp((progress - start) / (phase * 0.7), 0, 1);
-
-              let opacity = 0;
-              let blur = 18;
-              let y = 50;
-
-              // ENTRY
-              if (progress >= start && progress <= end) {
-                opacity = local;
-                blur = 18 - local * 18;
-                y = 50 - local * 50;
-              }
-
-              // FADE OUT (smooth, not instant)
-              if (progress > end) {
-                const fadeOut = clamp((progress - end) / (phase * 0.8), 0, 1);
-
-                opacity = 1 - fadeOut * 0.8;
-                blur = 6 + fadeOut * 8;
-                y = -10 - fadeOut * 10;
-              }
-
-              return (
-                <WhyUsCard
-                  key={card.title}
-                  index={i}
-                  title={card.title}
-                  text={card.text}
-                  style={{
-                    opacity,
-                    transform: `translateY(${y}px)`,
-                    filter: `blur(${blur}px)`,
-                    zIndex: i + 1,
-                  }}
-                />
-              );
-            })}
-          </div>
-
+          <motion.h2
+            initial={{ opacity: 0, y: 34, filter: "blur(10px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{
+              duration: 0.95,
+              delay: 0.12,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            viewport={{ once: true, amount: 0.25 }}
+            className="mx-auto mt-6 max-w-[900px] text-[clamp(40px,5vw,72px)] font-semibold leading-[0.95] tracking-[-0.06em] text-[var(--color-fg)]"
+          >
+            {t.whyUs.title}
+          </motion.h2>
         </div>
+
+        <motion.div
+          variants={cardsContainerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.12 }}
+          className="mt-14"
+        >
+          <div className="grid gap-8 lg:grid-cols-2">
+            <motion.div variants={cardVariants}>
+              <WhyUsCard {...whyUsItems[0]} />
+            </motion.div>
+
+            <motion.div variants={cardVariants}>
+              <WhyUsCard {...whyUsItems[1]} />
+            </motion.div>
+          </div>
+
+          <div className="mt-8 flex justify-center">
+            <motion.div variants={cardVariants} className="w-full max-w-[656px]">
+              <WhyUsCard {...whyUsItems[2]} />
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -10,7 +10,7 @@ export default function BenefitShell({
   return (
     <article
       className={[
-        "relative overflow-hidden rounded-[36px] border border-[var(--color-border)] bg-[var(--color-surface)]/85 p-6 shadow-[var(--shadow-soft)] backdrop-blur-sm",
+        "rounded-[36px] border border-[var(--color-border)] bg-[var(--color-white)]/85 p-6 shadow-[var(--shadow-soft)] backdrop-blur-sm",
         className,
       ].join(" ")}
     >

@@ -42,36 +42,58 @@ export type Dictionary = {
     };
   };
 
-  whyPartner: {
+  whyUs: {
     badge: string;
     title: string;
-    subtitle: string;
     items: {
+      badge: string;
       title: string;
       text: string;
+      points: string[];
+      visualLabels: string[];
+      visualTitle?: string;
     }[];
   };
 
-  benefits: {
-    intro: {
-      badge: string;
-      title: string;
-      text: string;
+  footer: {
+    badge: string;
+    title: string;
+    text: string;
+    marketLabel: string;
+    copyright: string;
+    links: {
+      home: string;
+      whyUs: string;
+      joinUs: string;
     };
-    models: {
-      badge: string;
-      title: string;
-      text: string;
-    };
-    onboarding: {
-      badge: string;
-      title: string;
-      text: string;
-    };
-    support: {
-      badge: string;
-      title: string;
-      text: string;
+  };
+
+  finalCta: {
+    badge: string;
+    title: string;
+    telegram: string;
+    whatsapp: string;
+    cards: {
+      agent: {
+        badge: string;
+        title: string;
+        text: string;
+        points: string[];
+        visualTag: string;
+        visualTitle: string;
+        visualText: string;
+        visualLetter: string;
+      };
+      partner: {
+        badge: string;
+        title: string;
+        text: string;
+        points: string[];
+        visualTag: string;
+        visualTitle: string;
+        visualText: string;
+        visualLetter: string;
+      };
     };
   };
 };
@@ -121,51 +143,99 @@ export const dictionaries: Record<Language, Dictionary> = {
       },
     },
 
-    whyPartner: {
-      badge: "Why Partner With Us",
-      title: "A partnership model built for growth, clarity, and long-term value.",
-      subtitle:
-        "Everything is structured to help affiliates and agents scale with confidence.",
+    whyUs: {
+      badge: "Why Us",
+      title: "Explore a whole new world of online opportunities",
       items: [
         {
-          title: "Competitive Models",
-          text: "Flexible earning structures designed to reward consistency and performance.",
+          badge: "Performance",
+          title: "See the value more clearly.",
+          text: "A better structure gives you a clearer view of performance, direction, and long-term growth potential.",
+          points: [
+            "Clearer model comparison.",
+            "Better visibility into long-term value.",
+          ],
+          visualTitle: "Performance",
+          visualLabels: [],
         },
         {
-          title: "Fast Onboarding",
-          text: "A clean entry point for new partners so they can start moving quickly.",
+          badge: "Simple Start",
+          title: "Move from interest to action faster.",
+          text: "A smoother onboarding path helps new partners and agents start with less friction and more confidence.",
+          points: [
+            "A smoother first experience.",
+            "Faster movement from interest to action.",
+          ],
+          visualLabels: ["Sign up", "Get approved", "Start earning"],
         },
         {
-          title: "Reliable Tracking",
-          text: "Clear visibility into results, activity, and performance over time.",
-        },
-        {
-          title: "Real Support",
-          text: "A partnership experience backed by responsive communication and guidance.",
+          badge: "Real Support",
+          title: "Work with guidance that actually helps.",
+          text: "Clear communication and practical support make daily work easier, cleaner, and more scalable over time.",
+          points: [
+            "More confidence in daily work.",
+            "Less friction when scaling.",
+          ],
+          visualLabels: [
+            "Dedicated manager",
+            "Quick replies",
+            "Real guidance",
+          ],
         },
       ],
     },
 
-    benefits: {
-      intro: {
-        badge: "Why Partner With Us",
-        title: "See where growth is coming from.",
-        text: "A clearer view of your partner activity helps you understand what is working and where to push further.",
+    footer: {
+      badge: "MELBET MOROCCO",
+      title: "A clean path for agents and partners ready to grow.",
+      text: "A simple structure, clear opportunities, and a more focused approach to long-term digital growth.",
+      marketLabel: "Morocco Market",
+      copyright: "© 2026 MELBET MOROCCO. All rights reserved.",
+      links: {
+        home: "Home",
+        whyUs: "Why Us",
+        joinUs: "Join us",
       },
-      models: {
-        badge: "Flexible Models",
-        title: "Choose structures that fit your strategy.",
-        text: "Work with models that support both short-term wins and long-term value depending on how you grow.",
-      },
-      onboarding: {
-        badge: "Fast Onboarding",
-        title: "Move from interest to action faster.",
-        text: "A smoother onboarding path helps new partners and agents start with less friction and more confidence.",
-      },
-      support: {
-        badge: "Real Support",
-        title: "Scale with guidance that stays useful.",
-        text: "Responsive communication and real partner support make daily work easier and growth more sustainable.",
+    },
+
+    finalCta: {
+      badge: "WORK WITH US",
+      title: "Choose the path that fits the way you want to grow",
+      telegram: "Telegram",
+      whatsapp: "WhatsApp",
+      cards: {
+        agent: {
+          badge: "For Agents",
+          title: "Agent Program",
+          text: "Start fast, bring players, and build steady income through a simple and scalable model.",
+          points: [
+            "Simple onboarding process",
+            "Built for direct field work",
+            "Fast communication and support",
+            "Clear path to start earning",
+          ],
+          visualTag: "Field Driven",
+          visualTitle: "AGENT",
+          visualText:
+            "Fast-moving model for direct outreach and daily conversions.",
+          visualLetter: "A",
+        },
+        partner: {
+          badge: "For Partners",
+          title: "Partner Program",
+          text: "Grow a long-term network with a structure designed for reach, retention, and recurring value.",
+          points: [
+            "Long-term revenue structure",
+            "Better visibility into growth",
+            "Scalable acquisition model",
+            "Designed for serious expansion",
+          ],
+          visualTag: "Long-Term Growth",
+          visualTitle: "PARTNER",
+          visualText:
+            "Structured for scale, retention, and stronger long-term value.",
+          visualLetter: "P",
+        },
       },
     },
   },
@@ -212,50 +282,94 @@ export const dictionaries: Record<Language, Dictionary> = {
       },
     },
 
-    whyPartner: {
-      badge: "لماذا الشراكة معنا",
-      title: "نموذج شراكة مبني على النمو والوضوح والقيمة على المدى الطويل.",
-      subtitle: "كل شيء منظم لمساعدة الوكلاء والشركاء على التوسع بثقة.",
+    whyUs: {
+      badge: "لماذا نحن",
+      title: "اكتشف عالماً جديداً بالكامل من الفرص الرقمية",
       items: [
         {
-          title: "نماذج تنافسية",
-          text: "هياكل ربح مرنة تكافئ الاستمرارية والأداء الحقيقي.",
+          badge: "الأداء",
+          title: "شاهد القيمة بوضوح أكبر.",
+          text: "هيكل أفضل يمنحك رؤية أوضح للأداء والاتجاه وإمكانيات النمو على المدى الطويل.",
+          points: [
+            "مقارنة أوضح بين النماذج.",
+            "رؤية أفضل للقيمة طويلة المدى.",
+          ],
+          visualTitle: "الأداء",
+          visualLabels: [],
         },
         {
-          title: "انضمام سريع",
-          text: "بداية واضحة وسلسة تساعد الشركاء الجدد على الانطلاق بسرعة.",
+          badge: "بداية سهلة",
+          title: "انتقل من الاهتمام إلى التنفيذ بسرعة أكبر.",
+          text: "مسار انضمام أكثر سلاسة يساعد الشركاء والوكلاء الجدد على البدء بثقة أكبر واحتكاك أقل.",
+          points: [
+            "تجربة أولى أكثر سلاسة.",
+            "انتقال أسرع من الاهتمام إلى التنفيذ.",
+          ],
+          visualLabels: ["سجل", "احصل على الموافقة", "ابدأ الربح"],
         },
         {
-          title: "تتبع موثوق",
-          text: "رؤية واضحة للنتائج والنشاط والأداء مع الوقت.",
-        },
-        {
-          title: "دعم حقيقي",
-          text: "تجربة شراكة مدعومة بتواصل سريع وإرشاد مستمر.",
+          badge: "دعم حقيقي",
+          title: "اعمل بإرشاد يفيد فعلاً.",
+          text: "التواصل الواضح والدعم العملي يجعل العمل اليومي أسهل وأنظف وأكثر قابلية للتوسع مع الوقت.",
+          points: [
+            "ثقة أكبر في العمل اليومي.",
+            "احتكاك أقل عند التوسع.",
+          ],
+          visualLabels: ["مدير مخصص", "ردود سريعة", "إرشاد حقيقي"],
         },
       ],
     },
 
-    benefits: {
-      intro: {
-        badge: "لماذا الشراكة معنا",
-        title: "اعرف من أين يأتي النمو.",
-        text: "رؤية أوضح لنشاط الشراكة تساعدك على فهم ما ينجح وأين يجب أن تدفع أكثر.",
+    footer: {
+      badge: "MELBET MOROCCO",
+      title: "مسار أوضح للوكلاء والشركاء المستعدين للنمو.",
+      text: "هيكل بسيط وفرص أوضح ونهج أكثر تركيزًا نحو النمو الرقمي طويل المدى.",
+      marketLabel: "السوق المغربي",
+      copyright: "© 2026 MELBET MOROCCO. جميع الحقوق محفوظة.",
+      links: {
+        home: "الرئيسية",
+        whyUs: "لماذا نحن",
+        joinUs: "انضم الينا",
       },
-      models: {
-        badge: "نماذج مرنة",
-        title: "اختر الهيكل الذي يناسب استراتيجيتك.",
-        text: "اعمل بنماذج تدعم الأرباح السريعة والقيمة الطويلة المدى حسب طريقة نموك.",
-      },
-      onboarding: {
-        badge: "انضمام سريع",
-        title: "انتقل من الاهتمام إلى التنفيذ بسرعة أكبر.",
-        text: "مسار انضمام أكثر سلاسة يساعد الشركاء والوكلاء الجدد على البدء بثقة أكبر واحتكاك أقل.",
-      },
-      support: {
-        badge: "دعم حقيقي",
-        title: "توسع بدعم يبقى مفيدًا.",
-        text: "التواصل السريع والدعم الحقيقي للشركاء يجعلان العمل اليومي أسهل والنمو أكثر استقرارًا.",
+    },
+
+    finalCta: {
+      badge: "اعمل معنا",
+      title: "اختر المسار الذي يناسب الطريقة التي تريد أن تنمو بها",
+      telegram: "تيليجرام",
+      whatsapp: "واتساب",
+      cards: {
+        agent: {
+          badge: "للوكلاء",
+          title: "برنامج الوكلاء",
+          text: "ابدأ بسرعة، اجذب اللاعبين، وابنِ دخلاً ثابتًا من خلال نموذج بسيط وقابل للتوسع.",
+          points: [
+            "مسار انضمام بسيط",
+            "مصمم للعمل الميداني المباشر",
+            "تواصل سريع ودعم واضح",
+            "طريق واضح لبدء الربح",
+          ],
+          visualTag: "موجه للعمل الميداني",
+          visualTitle: "وكيل",
+          visualText: "نموذج سريع الحركة للوصول المباشر والتحويلات اليومية.",
+          visualLetter: "و",
+        },
+        partner: {
+          badge: "للشركاء",
+          title: "برنامج الشركاء",
+          text: "ابنِ شبكة طويلة المدى بهيكل مصمم للوصول والاحتفاظ والقيمة المتكررة.",
+          points: [
+            "هيكل ربح طويل المدى",
+            "رؤية أوضح للنمو",
+            "نموذج استحواذ قابل للتوسع",
+            "مصمم للتوسع الجاد",
+          ],
+          visualTag: "نمو طويل المدى",
+          visualTitle: "شريك",
+          visualText:
+            "مصمم للتوسع والاحتفاظ وبناء قيمة أقوى على المدى الطويل.",
+          visualLetter: "ش",
+        },
       },
     },
   },
@@ -304,52 +418,99 @@ export const dictionaries: Record<Language, Dictionary> = {
       },
     },
 
-    whyPartner: {
-      badge: "Pourquoi nous rejoindre",
-      title:
-        "Un modèle de partenariat conçu pour la croissance, la clarté et la valeur à long terme.",
-      subtitle:
-        "Tout est structuré pour aider les affiliés et les agents à évoluer avec confiance.",
+    whyUs: {
+      badge: "Pourquoi nous",
+      title: "Découvrez un tout nouveau monde d’opportunités en ligne",
       items: [
         {
-          title: "Modèles compétitifs",
-          text: "Des structures de gains flexibles conçues pour récompenser la régularité et la performance.",
+          badge: "Performance",
+          title: "Voyez la valeur plus clairement.",
+          text: "Une meilleure structure vous donne une vision plus claire de la performance, de la direction et du potentiel de croissance à long terme.",
+          points: [
+            "Comparaison des modèles plus claire.",
+            "Meilleure visibilité sur la valeur à long terme.",
+          ],
+          visualTitle: "Performance",
+          visualLabels: [],
         },
         {
-          title: "Intégration rapide",
-          text: "Un point d’entrée clair pour permettre aux nouveaux partenaires d’avancer rapidement.",
+          badge: "Départ simple",
+          title: "Passez plus vite de l’intérêt à l’action.",
+          text: "Un parcours d’intégration plus fluide aide les nouveaux partenaires et agents à démarrer avec moins de friction et plus de confiance.",
+          points: [
+            "Une première expérience plus fluide.",
+            "Un passage plus rapide de l’intérêt à l’action.",
+          ],
+          visualLabels: ["S’inscrire", "Être approuvé", "Commencer à gagner"],
         },
         {
-          title: "Suivi fiable",
-          text: "Une visibilité claire sur les résultats, l’activité et les performances dans le temps.",
-        },
-        {
-          title: "Vrai support",
-          text: "Une expérience de partenariat soutenue par une communication réactive et un accompagnement utile.",
+          badge: "Vrai support",
+          title: "Travaillez avec un accompagnement vraiment utile.",
+          text: "Une communication claire et un support pratique rendent le travail quotidien plus simple, plus propre et plus évolutif dans le temps.",
+          points: [
+            "Plus de confiance au quotidien.",
+            "Moins de friction lors du passage à l’échelle.",
+          ],
+          visualLabels: [
+            "Manager dédié",
+            "Réponses rapides",
+            "Vrai accompagnement",
+          ],
         },
       ],
     },
 
-    benefits: {
-      intro: {
-        badge: "Pourquoi nous rejoindre",
-        title: "Voyez d’où vient la croissance.",
-        text: "Une vision plus claire de votre activité partenaire vous aide à comprendre ce qui fonctionne et où accélérer.",
+    footer: {
+      badge: "MELBET MOROCCO",
+      title: "Une voie plus claire pour les agents et partenaires prêts à grandir.",
+      text: "Construit avec une structure plus simple, des opportunités plus claires et une approche plus concentrée sur la croissance numérique à long terme.",
+      marketLabel: "Marché marocain",
+      copyright: "© 2026 MELBET MOROCCO. Tous droits réservés.",
+      links: {
+        home: "Accueil",
+        whyUs: "Pourquoi nous",
+        joinUs: "Rejoignez-nous",
       },
-      models: {
-        badge: "Modèles flexibles",
-        title: "Choisissez la structure adaptée à votre stratégie.",
-        text: "Travaillez avec des modèles qui soutiennent à la fois les gains rapides et la valeur durable selon votre croissance.",
-      },
-      onboarding: {
-        badge: "Intégration rapide",
-        title: "Passez plus vite de l’intérêt à l’action.",
-        text: "Un parcours d’intégration plus fluide aide les nouveaux partenaires et agents à démarrer avec plus de confiance.",
-      },
-      support: {
-        badge: "Vrai support",
-        title: "Évoluez avec un accompagnement utile.",
-        text: "Une communication réactive et un vrai support rendent le travail quotidien plus simple et la croissance plus durable.",
+    },
+
+    finalCta: {
+      badge: "TRAVAILLEZ AVEC NOUS",
+      title: "Choisissez la voie qui correspond à votre façon de grandir",
+      telegram: "Telegram",
+      whatsapp: "WhatsApp",
+      cards: {
+        agent: {
+          badge: "Pour les agents",
+          title: "Programme Agent",
+          text: "Démarrez vite, attirez des joueurs et construisez un revenu régulier grâce à un modèle simple et évolutif.",
+          points: [
+            "Processus d’intégration simple",
+            "Conçu pour le travail terrain",
+            "Communication rapide et support clair",
+            "Voie claire pour commencer à gagner",
+          ],
+          visualTag: "Orienté terrain",
+          visualTitle: "AGENT",
+          visualText:
+            "Un modèle rapide pour l’approche directe et les conversions quotidiennes.",
+          visualLetter: "A",
+        },
+        partner: {
+          badge: "Pour les partenaires",
+          title: "Programme Partenaire",
+          text: "Développez un réseau sur le long terme avec une structure pensée pour la portée, la rétention et la valeur récurrente.",
+          points: [
+            "Structure de revenus long terme",
+            "Meilleure visibilité sur la croissance",
+            "Modèle d’acquisition évolutif",
+            "Conçu pour une expansion sérieuse",
+          ],
+          visualTag: "Croissance long terme",
+          visualTitle: "PARTENAIRE",
+          visualText:
+            "Pensé pour l’échelle, la rétention et une valeur durable plus forte.",
+          visualLetter: "P",
+        },
       },
     },
   },

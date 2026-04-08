@@ -14,7 +14,7 @@ function isArabicText(value: string) {
 export default function RollingLabel({
   text,
   active = false,
-  baseColorClass = "text-[var(--color-fg)]",
+  baseColorClass = "text-[var(--color-black)]",
   hoverColorClass = "text-[var(--color-primary)]",
 }: RollingLabelProps) {
   const arabic = isArabicText(text);

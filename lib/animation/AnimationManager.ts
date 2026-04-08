@@ -26,9 +26,9 @@ export const AnimationManager = {
     },
     heroPhone: {
       delay: 0,
-      duration: 1400,
-      y: 180,
-      blur: 14,
+      duration: 1200,
+      y: 120,
+      blur: 0,
     },
     heroSidePlus: {
       delay: 3650,

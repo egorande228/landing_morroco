@@ -4,7 +4,7 @@ import Navbar from "@/app/components/layout/Navbar";
 import { LanguageProvider } from "@/app/components/providers/LanguageProvider";
 import LanguageToggle from "@/app/components/layout/LanguageToggle";
 import LenisProvider from "@/app/components/providers/LenisProvider";
-
+import Footer from "./components/layout/Footer";
 export const metadata: Metadata = {
   title: "Landing Page",
   description: "Landing page project",
@@ -24,6 +24,7 @@ export default function RootLayout({
             <LanguageToggle />
             {children}
           </LenisProvider>
+          <Footer />
         </LanguageProvider>
       </body>
     </html>
