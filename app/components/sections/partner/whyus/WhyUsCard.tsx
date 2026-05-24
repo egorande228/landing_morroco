@@ -140,7 +140,10 @@ export default function WhyUsCard({
                     delay: 0.16 + index * 0.1,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className="flex items-center gap-4"
+                  className={[
+                    "flex items-center gap-4",
+                    isArabic ? "flex-row-reverse text-right" : "text-left",
+                  ].join(" ")}
                 >
                   <span className="flex h-[36px] w-[36px] items-center justify-center rounded-full bg-black/5 text-[var(--color-primary)]">
                     ✓

@@ -11,7 +11,7 @@ export default function WhyUsVisualPerformance({
       <div className="absolute inset-0 opacity-30 [background-image:linear-gradient(to_right,rgba(255,255,255,0.5)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.5)_1px,transparent_1px)] [background-size:52px_52px]" />
 
       <div className="relative mx-auto mt-9 h-[220px] w-[200px] rounded-[30px] border border-[var(--color-border)] bg-[var(--color-white)] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
-        <div className="text-[18px] font-medium text-[var(--color-fg)]">
+        <div className="text-[18px] font-medium text-[var(--color-text-on-light)]">
           {visualTitle}
         </div>
 

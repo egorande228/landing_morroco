@@ -1,20 +1,47 @@
-import Navbar from "@/app/components/layout/Navbar";
-import BackgroundGrid from "@/app/components/ui/BackgroundGrid";
+import type { Metadata } from "next";
+import MarketPageFrame from "@/components/layout/MarketPageFrame";
+import FinalCtaSection from "@/components/sections/partnership/FinalCtaSection";
+import HeroMoroccoHome from "@/components/sections/home/HeroMoroccoHome";
+import HomeGamesSection from "@/components/sections/home/HomeGamesSection";
+import HomeOffersSection from "@/components/sections/home/HomeOffersSection";
+import HomeSportsSection from "@/components/sections/home/HomeSportsSection";
+import { moroccoGlobals } from "@/config/morocco.globals";
+import { getMoroccoHomeContent } from "@/content/markets/morocco";
+import { resolveMoroccoLocale } from "@/lib/locale";
 
-export default function Home() {
+type PageProps = {
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+};
+
+const defaultContent = getMoroccoHomeContent("en");
+
+export const metadata: Metadata = {
+  title: defaultContent.seo.title,
+  description: defaultContent.seo.description,
+};
+
+export default async function HomePage({ searchParams }: PageProps) {
+  const resolvedSearchParams = searchParams ? await searchParams : undefined;
+  const locale = resolveMoroccoLocale(resolvedSearchParams);
+  const content = getMoroccoHomeContent(locale);
+  const assets = moroccoGlobals.pages.home.assets;
+  const enabled = new Set(moroccoGlobals.pages.home.enabledSections);
+
   return (
-    <div className="relative min-h-screen bg-[var(--color-bg)]">
-      <BackgroundGrid />
-
-      <div className="relative z-10">
-        <Navbar />
-
-        <main className="mx-auto min-h-[200vh] max-w-[1320px] px-6 md:px-10">
-          <section className="min-h-[80vh]" />
-          <section className="min-h-[80vh]" />
-          <section className="min-h-[80vh]" />
-        </main>
-      </div>
-    </div>
+    <MarketPageFrame pathname="/" locale={locale} header={content.nav} footer={content.footer}>
+      {enabled.has("hero") ? <HeroMoroccoHome content={content.hero} /> : null}
+      {enabled.has("games") ? <HomeGamesSection content={content.games} assets={assets.games} /> : null}
+      {enabled.has("sports") ? <HomeSportsSection content={content.sports} assets={assets.sports} /> : null}
+      {enabled.has("offers") ? (
+        <HomeOffersSection
+          content={content.offers}
+          assets={assets.offers}
+          ctaHref={content.finalCta.primary.href}
+        />
+      ) : null}
+      {enabled.has("finalCta") ? (
+        <FinalCtaSection content={content.finalCta} id="support" />
+      ) : null}
+    </MarketPageFrame>
   );
 }

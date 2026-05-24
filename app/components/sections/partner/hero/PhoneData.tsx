@@ -2,13 +2,7 @@
 
 import { useLanguage } from "@/app/components/providers/LanguageProvider";
 
-type PhoneDataProps = {
-  revealDelay?: number;
-};
-
-export default function PhoneData({
-  revealDelay: _revealDelay,
-}: PhoneDataProps) {
+export default function PhoneData() {
   const { dictionary } = useLanguage();
   const phone = dictionary.partnerHero.phone;
 

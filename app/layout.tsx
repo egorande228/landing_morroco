@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
+import type { CSSProperties } from "react";
 import "./globals.css";
-import Navbar from "@/app/components/layout/Navbar";
-import { LanguageProvider } from "@/app/components/providers/LanguageProvider";
-import LanguageToggle from "@/app/components/layout/LanguageToggle";
-import LenisProvider from "@/app/components/providers/LenisProvider";
-import Footer from "./components/layout/Footer";
+import MarketBackdrop from "@/components/layout/MarketBackdrop";
+import { getMoroccoHomeContent } from "@/content/markets/morocco";
+import { moroccoGlobalVars } from "@/config/morocco.globals";
+import { moroccoThemeVars } from "@/themes/morocco";
+
+const defaultContent = getMoroccoHomeContent("en");
+
 export const metadata: Metadata = {
-  title: "Landing Page",
-  description: "Landing page project",
+  title: defaultContent.seo.title,
+  description: defaultContent.seo.description,
 };
 
 export default function RootLayout({
@@ -16,16 +19,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <LanguageProvider>
-          <LenisProvider>
-            <Navbar />
-            <LanguageToggle />
-            {children}
-          </LenisProvider>
-          <Footer />
-        </LanguageProvider>
+    <html lang="en" dir="ltr" className="h-full" suppressHydrationWarning>
+      <body
+        style={{ ...moroccoThemeVars, ...moroccoGlobalVars } as CSSProperties}
+        className="min-h-full bg-[var(--color-canvas-base)] text-[var(--color-text-base)] antialiased"
+      >
+        <div className="app-root">
+          <MarketBackdrop />
+          {children}
+        </div>
       </body>
     </html>
   );

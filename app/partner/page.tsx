@@ -1,15 +1,12 @@
-import BackgroundGrid from "@/app/components/ui/BackgroundGrid";
-import PartnerHero from "../components/sections/partner/hero/PartnerHero";
-import WhyUsSection from "../components/sections/partner/whyus/WhyUsSection";
-import FinalCTA from "../components/sections/partner/finalCTA/page";
+import { redirect } from "next/navigation";
+import { localizeHref, resolveMoroccoLocale } from "@/lib/locale";
 
-export default function PartnerPage() {
-  return (
-<main className="relative overflow-x-clip">
-  <BackgroundGrid/>
-  <PartnerHero />
-  <WhyUsSection />
-  <FinalCTA/>
-</main>
-  );
+type PageProps = {
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+};
+
+export default async function LegacyPartnerPage({ searchParams }: PageProps) {
+  const resolvedSearchParams = searchParams ? await searchParams : undefined;
+  const locale = resolveMoroccoLocale(resolvedSearchParams);
+  redirect(localizeHref("/partnership", locale));
 }
