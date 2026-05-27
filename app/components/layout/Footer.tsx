@@ -9,7 +9,7 @@ import { getPlayerHomeContent } from "@/lib/player-home";
 
 const supportLinks = [
   { href: moroccoGlobals.contact.telegram, key: "telegram", image: "/telegram.png" },
-  { href: moroccoGlobals.contact.email, key: "mail" },
+  { href: moroccoGlobals.contact.email, key: "email" },
 ] as const;
 
 export default function Footer() {
@@ -102,7 +102,7 @@ export default function Footer() {
                       {"image" in item ? (
                         <Image src={item.image} alt="" width={16} height={16} className="h-4 w-4 object-contain" />
                       ) : null}
-                      {item.key === "telegram" ? dictionary.finalCta.telegram : dictionary.finalCta.whatsapp}
+                      {item.key === "telegram" ? dictionary.finalCta.telegram : "Email"}
                     </Link>
                   ))}
                 </div>

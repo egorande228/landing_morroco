@@ -17,50 +17,65 @@ export default function HomeSportsSection({
         <div className="flex h-full flex-col gap-6">
           <SectionHeader eyebrow={content.eyebrow} title={content.title} body={content.body} />
 
-          <SurfaceCard variant="stage" className="sport-lead-card flex-1">
-            <div className="media-shell media-shell--wide">
-              <Image
-                src={assets[0] ?? assets[1]}
-                alt={content.lead.title}
-                fill
-                sizes="(max-width: 1024px) 100vw, 480px"
-                className="media-shell__image media-shell__image--contain"
-              />
-            </div>
-            <div className="space-y-3">
-              <div className="flex items-center justify-between gap-3">
-                <p className="eyebrow text-[var(--color-secondary)]">{content.lead.eyebrow}</p>
-                {content.lead.metric ? <span className="pill pill--soft">{content.lead.metric}</span> : null}
-              </div>
-              <h3 className="text-[clamp(1.25rem,1.9vw,1.55rem)] font-[650] leading-[1.02] tracking-[-0.025em] text-[var(--color-foreground)]">
-                {content.lead.title}
-              </h3>
-            </div>
-          </SurfaceCard>
-        </div>
-
-        <div className="grid gap-[var(--grid-gap)] sm:grid-cols-2">
-          {content.cards.map((card, index) => (
-            <SurfaceCard key={`${card.title}-${index}`} variant={index === 2 ? "accent" : "glass"} className="card-stack h-full">
-              <div className="media-shell media-shell--square">
+          <a
+            href={content.lead.href ?? "#"}
+            target={content.lead.href ? "_blank" : undefined}
+            rel={content.lead.href ? "noreferrer" : undefined}
+            className="block flex-1"
+          >
+            <SurfaceCard variant="stage" className="sport-lead-card flex-1">
+              <div className="media-shell media-shell--wide">
                 <Image
-                  src={assets[index + 1] ?? assets[index] ?? assets[0]}
-                  alt={card.title}
+                  src={assets[0] ?? assets[1]}
+                  alt={content.lead.title}
                   fill
-                  sizes="(max-width: 768px) 100vw, 280px"
+                  sizes="(max-width: 1024px) 100vw, 480px"
                   className="media-shell__image media-shell__image--contain"
                 />
               </div>
               <div className="space-y-3">
                 <div className="flex items-center justify-between gap-3">
-                  <p className="eyebrow text-[var(--color-secondary)]">{card.eyebrow}</p>
-                  {card.metric ? <span className="pill pill--soft">{card.metric}</span> : null}
+                  <p className="eyebrow text-[var(--color-secondary)]">{content.lead.eyebrow}</p>
+                  {content.lead.metric ? <span className="pill pill--soft">{content.lead.metric}</span> : null}
                 </div>
-                <h3 className="text-[clamp(1rem,1.35vw,1.18rem)] font-[650] leading-[1.06] tracking-[-0.02em] text-[var(--color-foreground)]">
-                  {card.title}
+                <h3 className="text-[clamp(1.25rem,1.9vw,1.55rem)] font-[650] leading-[1.02] tracking-[-0.025em] text-[var(--color-foreground)]">
+                  {content.lead.title}
                 </h3>
               </div>
             </SurfaceCard>
+          </a>
+        </div>
+
+        <div className="grid gap-[var(--grid-gap)] sm:grid-cols-2">
+          {content.cards.map((card, index) => (
+            <a
+              key={`${card.title}-${index}`}
+              href={card.href ?? "#"}
+              target={card.href ? "_blank" : undefined}
+              rel={card.href ? "noreferrer" : undefined}
+              className="block h-full"
+            >
+              <SurfaceCard variant={index === 2 ? "accent" : "glass"} className="card-stack h-full">
+                <div className="media-shell media-shell--square">
+                  <Image
+                    src={assets[index + 1] ?? assets[index] ?? assets[0]}
+                    alt={card.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 280px"
+                    className="media-shell__image media-shell__image--contain"
+                  />
+                </div>
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between gap-3">
+                    <p className="eyebrow text-[var(--color-secondary)]">{card.eyebrow}</p>
+                    {card.metric ? <span className="pill pill--soft">{card.metric}</span> : null}
+                  </div>
+                  <h3 className="text-[clamp(1rem,1.35vw,1.18rem)] font-[650] leading-[1.06] tracking-[-0.02em] text-[var(--color-foreground)]">
+                    {card.title}
+                  </h3>
+                </div>
+              </SurfaceCard>
+            </a>
           ))}
         </div>
       </div>

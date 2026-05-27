@@ -17,25 +17,33 @@ export default function HomeGamesSection({
 
       <div className="mt-8 grid gap-[var(--grid-gap)] lg:grid-cols-3">
         {content.cards.map((card, index) => (
-          <SurfaceCard key={card.title} variant={index === 1 ? "accent" : "glass"} className="card-stack h-full">
-            <div className="media-shell">
-              <Image
-                src={assets[index] ?? assets[0]}
-                alt={card.title}
-                fill
-                sizes="(max-width: 1024px) 100vw, 360px"
-                className="media-shell__image media-shell__image--contain"
-              />
-            </div>
-            <div className="space-y-3">
-              <div className="flex items-center justify-between gap-3">
-                <p className="eyebrow text-[var(--color-secondary)]">{card.eyebrow}</p>
-                {card.metric ? <span className="pill pill--soft">{card.metric}</span> : null}
+          <a
+            key={card.title}
+            href={card.href ?? "#"}
+            target={card.href ? "_blank" : undefined}
+            rel={card.href ? "noreferrer" : undefined}
+            className="block h-full"
+          >
+            <SurfaceCard variant={index === 1 ? "accent" : "glass"} className="card-stack h-full">
+              <div className="media-shell">
+                <Image
+                  src={assets[index] ?? assets[0]}
+                  alt={card.title}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 360px"
+                  className="media-shell__image media-shell__image--contain"
+                />
               </div>
-              <h3 className="type-card-title text-[var(--color-foreground)]">{card.title}</h3>
-              <p className="type-body text-[var(--color-foreground-soft)]">{card.body}</p>
-            </div>
-          </SurfaceCard>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between gap-3">
+                  <p className="eyebrow text-[var(--color-secondary)]">{card.eyebrow}</p>
+                  {card.metric ? <span className="pill pill--soft">{card.metric}</span> : null}
+                </div>
+                <h3 className="type-card-title text-[var(--color-foreground)]">{card.title}</h3>
+                <p className="type-body text-[var(--color-foreground-soft)]">{card.body}</p>
+              </div>
+            </SurfaceCard>
+          </a>
         ))}
       </div>
     </SectionShell>

@@ -7,6 +7,7 @@ import HomeOffersSection from "@/components/sections/home/HomeOffersSection";
 import HomeSportsSection from "@/components/sections/home/HomeSportsSection";
 import { moroccoGlobals } from "@/config/morocco.globals";
 import { getMoroccoHomeContent } from "@/content/markets/morocco";
+import { REFERRAL_LINKS } from "@/lib/links";
 import { resolveMoroccoLocale } from "@/lib/locale";
 
 type PageProps = {
@@ -36,7 +37,7 @@ export default async function HomePage({ searchParams }: PageProps) {
         <HomeOffersSection
           content={content.offers}
           assets={assets.offers}
-          ctaHref={content.finalCta.primary.href}
+          ctaHref={REFERRAL_LINKS.default}
         />
       ) : null}
       {enabled.has("finalCta") ? (

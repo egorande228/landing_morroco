@@ -1,7 +1,8 @@
 import { moroccoGlobals } from "@/config/morocco.globals";
 import { getDirection, getDictionary, type Language } from "@/lib/dictionary";
+import { REFERRAL_LINKS } from "@/lib/links";
 import { getPlayerHomeContent } from "@/lib/player-home";
-import { localizeHref, localizeLink, localizeLinks } from "@/lib/locale";
+import { localizeLink, localizeLinks } from "@/lib/locale";
 import type {
   AboutContent,
   FooterContent,
@@ -14,7 +15,8 @@ import type {
 
 type LocaleRecord<T> = Record<MoroccoLocale, T>;
 
-const aff_link = "/#games";
+const SPORTS_REFERRAL_LINK = REFERRAL_LINKS.sports;
+const DEFAULT_REFERRAL_LINK = REFERRAL_LINKS.default;
 
 const partnershipNavLabels: LocaleRecord<{
   steps: string;
@@ -136,9 +138,9 @@ function buildFooter(locale: MoroccoLocale, routeLabel: string, bodyOverride?: s
         iconSrc: "/telegram.png",
       },
       {
-        label: dictionary.finalCta.whatsapp,
-        href: moroccoGlobals.contact.whatsapp,
-        external: false,
+        label: "Email",
+        href: moroccoGlobals.contact.email,
+        external: true,
       },
     ],
     legal: dictionary.footer.copyright,
@@ -251,9 +253,9 @@ const extraPartnershipByLocale: LocaleRecord<{
           external: true,
         },
         secondary: {
-          label: "Mail",
-          href: moroccoGlobals.contact.whatsapp,
-          external: false,
+          label: "Email",
+          href: moroccoGlobals.contact.email,
+          external: true,
         },
       },
       footer: buildFooter("en", "Explore", "Live sports, daily offers, and partnership routes stay one message away."),
@@ -355,7 +357,7 @@ const extraPartnershipByLocale: LocaleRecord<{
         body:
           "Une fois ce test Maroc valide, le meme schema peut etre reproduit avec seulement theme local, contenu, et PNG remplaces.",
         primary: { label: "Telegram", href: moroccoGlobals.contact.telegram, external: true },
-        secondary: { label: "Mail", href: moroccoGlobals.contact.whatsapp, external: false },
+        secondary: { label: "Email", href: moroccoGlobals.contact.email, external: true },
       },
       footer: buildFooter("fr", "Routes"),
     },
@@ -456,7 +458,7 @@ const extraPartnershipByLocale: LocaleRecord<{
         body:
           "بعد ضبط هذا الاختبار للمغرب، يمكن تكرار نفس الشكل مع تغيير الثيم المحلي والمحتوى وملفات PNG فقط.",
         primary: { label: "Telegram", href: moroccoGlobals.contact.telegram, external: true },
-        secondary: { label: "Mail", href: moroccoGlobals.contact.whatsapp, external: false },
+        secondary: { label: "Email", href: moroccoGlobals.contact.email, external: true },
       },
       footer: buildFooter("ar", "المسارات"),
     },
@@ -469,7 +471,6 @@ function buildInternalLink(label: string, href: string, locale: MoroccoLocale): 
 
 export function getMoroccoHomeContent(locale: MoroccoLocale): HomeContent {
   const source = getPlayerHomeContent(locale);
-  const dictionary = getDictionary(locale);
 
   return {
     seo: {
@@ -482,25 +483,25 @@ export function getMoroccoHomeContent(locale: MoroccoLocale): HomeContent {
       eyebrow: source.hero.eyebrow,
       title: source.hero.title,
       body: source.hero.body,
-      primaryCta: buildInternalLink(source.hero.primary, aff_link, locale),
-      secondaryCta: buildInternalLink(source.hero.secondary, "/#offers", locale),
+      primaryCta: buildInternalLink(source.hero.primary, SPORTS_REFERRAL_LINK, locale),
+      secondaryCta: buildInternalLink(source.hero.secondary, DEFAULT_REFERRAL_LINK, locale),
       highlights: source.hero.chips,
       stats: source.hero.stats,
       tiles: [
         {
           title: source.hero.feature.title,
           badge: source.hero.feature.metric ?? source.hero.feature.eyebrow,
-          href: localizeHref("/#games", locale),
+          href: SPORTS_REFERRAL_LINK,
         },
         {
           title: source.games.cards[0]?.title ?? source.hero.supportCard.title,
           badge: source.games.cards[0]?.metric ?? source.games.cards[0]?.eyebrow ?? source.hero.supportCard.eyebrow,
-          href: localizeHref("/#games", locale),
+          href: DEFAULT_REFERRAL_LINK,
         },
         {
           title: source.offers.cards[0]?.title ?? source.hero.supportCard.title,
           badge: source.offers.cards[0]?.metric ?? source.hero.supportCard.metric ?? source.hero.supportCard.eyebrow,
-          href: localizeHref("/#offers", locale),
+          href: DEFAULT_REFERRAL_LINK,
         },
       ],
     },
@@ -514,7 +515,7 @@ export function getMoroccoHomeContent(locale: MoroccoLocale): HomeContent {
         body: card.body,
         metric: card.metric,
         badge: card.metric,
-        href: localizeHref("/#offers", locale),
+        href: DEFAULT_REFERRAL_LINK,
       })),
     },
     sports: {
@@ -526,6 +527,7 @@ export function getMoroccoHomeContent(locale: MoroccoLocale): HomeContent {
         title: source.sports.lead.title,
         body: source.sports.lead.body,
         metric: source.sports.lead.metric,
+        href: SPORTS_REFERRAL_LINK,
       },
       cards: source.sports.rails.map((card) => ({
         eyebrow: card.eyebrow,
@@ -533,6 +535,7 @@ export function getMoroccoHomeContent(locale: MoroccoLocale): HomeContent {
         body: card.body,
         metric: card.metric,
         badge: card.metric,
+        href: SPORTS_REFERRAL_LINK,
       })),
     },
     offers: {
@@ -559,9 +562,9 @@ export function getMoroccoHomeContent(locale: MoroccoLocale): HomeContent {
         iconSrc: "/telegram.png",
       },
       secondary: {
-        label: source.finalCta.secondary,
-        href: moroccoGlobals.contact.whatsapp,
-        external: false,
+        label: "Email",
+        href: moroccoGlobals.contact.email,
+        external: true,
       },
     },
     footer: buildFooter(locale, source.footer.routesLabel, source.footer.body),
@@ -653,7 +656,7 @@ export function getMoroccoPartnershipContent(locale: MoroccoLocale): Partnership
       title: dictionary.finalCta.title,
       body:
         direction === "rtl"
-          ? "استخدم تيليجرام أو البريد للبدء بسرعة، ثم بدّل الأصول لاحقاً داخل نفس مسارات PNG المحددة مسبقاً."
+          ? "استخدم تيليجرام أو البريد الإلكتروني للبدء بسرعة، ثم بدّل الأصول لاحقاً داخل نفس مسارات PNG المحددة مسبقاً."
           : locale === "fr"
             ? "Utilisez Telegram ou email pour demarrer vite, puis remplacez les PNG plus tard sans retoucher la structure."
             : "Message the team on Telegram or email, choose the route that fits, and start the conversation with a manager.",
@@ -664,9 +667,9 @@ export function getMoroccoPartnershipContent(locale: MoroccoLocale): Partnership
         iconSrc: "/telegram.png",
       },
       secondary: {
-        label: dictionary.finalCta.whatsapp,
-        href: moroccoGlobals.contact.whatsapp,
-        external: false,
+        label: "Email",
+        href: moroccoGlobals.contact.email,
+        external: true,
       },
     },
     footer: buildFooter(locale, dictionary.nav.joinUs, dictionary.footer.text),

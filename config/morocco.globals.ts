@@ -1,5 +1,6 @@
 import type { CountryPageGlobals } from "@/schemas/landing";
 import { createCssVars } from "@/themes/base";
+import { CONTACT_LINKS } from "@/lib/links";
 
 export const moroccoGlobals: CountryPageGlobals = {
   market: "Morocco",
@@ -12,9 +13,9 @@ export const moroccoGlobals: CountryPageGlobals = {
     fr: "ltr",
   },
   contact: {
-    telegram: "https://t.me/TeamCash_MENA",
-    whatsapp: "mailto:PAYPARTNERS-NORTHAFRICA@MELBET.COM",
-    email: "mailto:PAYPARTNERS-NORTHAFRICA@MELBET.COM",
+    telegram: CONTACT_LINKS.telegram,
+    whatsapp: CONTACT_LINKS.email,
+    email: CONTACT_LINKS.email,
   },
   routes: {
     home: "/",
