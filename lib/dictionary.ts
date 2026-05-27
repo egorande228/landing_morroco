@@ -202,7 +202,7 @@ export const dictionaries: Record<Language, Dictionary> = {
       badge: "PARTNER WITH MELBET",
       title: "Pick the route that fits your network, audience, or local reach",
       telegram: "Telegram",
-      whatsapp: "WhatsApp",
+      whatsapp: "Mail",
       cards: {
         agent: {
           badge: "For Agents",
@@ -337,7 +337,7 @@ export const dictionaries: Record<Language, Dictionary> = {
       badge: "اعمل معنا",
       title: "اختر المسار الذي يناسب الطريقة التي تريد أن تنمو بها",
       telegram: "تيليجرام",
-      whatsapp: "واتساب",
+      whatsapp: "البريد",
       cards: {
         agent: {
           badge: "للوكلاء",
@@ -477,7 +477,7 @@ export const dictionaries: Record<Language, Dictionary> = {
       badge: "TRAVAILLEZ AVEC NOUS",
       title: "Choisissez la voie qui correspond à votre façon de grandir",
       telegram: "Telegram",
-      whatsapp: "WhatsApp",
+      whatsapp: "Mail",
       cards: {
         agent: {
           badge: "Pour les agents",

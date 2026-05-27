@@ -203,9 +203,9 @@ const content: Record<Language, HomeContent> = {
     finalCta: {
       eyebrow: "",
       title: "Need help before you play or while you move between offers?",
-      body: "Open Telegram or WhatsApp for a faster reply and a simpler route back into the games, sports, or bonus flow.",
+      body: "Open Telegram or email for a faster reply and a simpler route back into the games, sports, or bonus flow.",
       primary: "Telegram",
-      secondary: "WhatsApp",
+      secondary: "Mail",
     },
     footer: {
       body: "Live sports, casino action, daily offers, and direct support stay within easy reach.",
@@ -353,9 +353,9 @@ const content: Record<Language, HomeContent> = {
     finalCta: {
       eyebrow: "",
       title: "اجعل الخطوة الأخيرة بسيطة مع تواصل سريع ومسار واضح للاعب.",
-      body: "يبقى تيليجرام وواتساب ظاهرين حتى يشعر اللاعب أن الإجراء الأخير مقصود وليس عاماً.",
+      body: "يبقى تيليجرام والبريد ظاهرين حتى يشعر اللاعب أن الإجراء الأخير مقصود وليس عاماً.",
       primary: "تيليجرام",
-      secondary: "واتساب",
+      secondary: "البريد",
     },
     footer: {
       body: "هيكل مغربي موجّه للاعبين مع إيقاع رياضي أقوى واكتشاف كازينو أوضح وإغلاق عروض أكثر قصدية.",
@@ -503,9 +503,9 @@ const content: Record<Language, HomeContent> = {
     finalCta: {
       eyebrow: "",
       title: "Gardez la derniere etape simple avec un contact rapide et clair.",
-      body: "Telegram et WhatsApp restent visibles pour une fin de page utile.",
+      body: "Telegram et email restent visibles pour une fin de page utile.",
       primary: "Telegram",
-      secondary: "WhatsApp",
+      secondary: "Mail",
     },
     footer: {
       body: "Une coque Maroc orientee joueurs avec un meilleur rythme sport, une decouverte casino plus claire et une fermeture offres plus forte.",

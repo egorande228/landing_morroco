@@ -1,0 +1,21 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "melbet-morocco",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-05-25",
+  "compatibility_flags": ["nodejs_compat"],
+  "account_id": "d8cf6ff6092e04a5ecd9436318dc6b66",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "routes": [
+    {
+      "pattern": "melbet-morocco.net",
+      "custom_domain": true
+    }
+  ]
+}

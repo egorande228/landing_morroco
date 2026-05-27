@@ -12,9 +12,9 @@ export const moroccoGlobals: CountryPageGlobals = {
     fr: "ltr",
   },
   contact: {
-    telegram: "https://t.me/your_channel",
-    whatsapp: "https://wa.me/your_number",
-    email: "mailto:partners@moroccomarket.com",
+    telegram: "https://t.me/TeamCash_MENA",
+    whatsapp: "mailto:PAYPARTNERS-NORTHAFRICA@MELBET.COM",
+    email: "mailto:PAYPARTNERS-NORTHAFRICA@MELBET.COM",
   },
   routes: {
     home: "/",

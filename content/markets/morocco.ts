@@ -138,8 +138,7 @@ function buildFooter(locale: MoroccoLocale, routeLabel: string, bodyOverride?: s
       {
         label: dictionary.finalCta.whatsapp,
         href: moroccoGlobals.contact.whatsapp,
-        external: true,
-        iconSrc: "/whatsapp.png",
+        external: false,
       },
     ],
     legal: dictionary.footer.copyright,
@@ -237,7 +236,7 @@ const extraPartnershipByLocale: LocaleRecord<{
           {
             badge: "Support",
             title: "Direct contact when you are ready to move",
-            body: "Telegram and WhatsApp stay visible so the next step feels immediate when you are ready to move.",
+            body: "Telegram and email stay visible so the next step feels immediate when you are ready to move.",
           },
         ],
       },
@@ -252,9 +251,9 @@ const extraPartnershipByLocale: LocaleRecord<{
           external: true,
         },
         secondary: {
-          label: "WhatsApp",
+          label: "Mail",
           href: moroccoGlobals.contact.whatsapp,
-          external: true,
+          external: false,
         },
       },
       footer: buildFooter("en", "Explore", "Live sports, daily offers, and partnership routes stay one message away."),
@@ -356,7 +355,7 @@ const extraPartnershipByLocale: LocaleRecord<{
         body:
           "Une fois ce test Maroc valide, le meme schema peut etre reproduit avec seulement theme local, contenu, et PNG remplaces.",
         primary: { label: "Telegram", href: moroccoGlobals.contact.telegram, external: true },
-        secondary: { label: "WhatsApp", href: moroccoGlobals.contact.whatsapp, external: true },
+        secondary: { label: "Mail", href: moroccoGlobals.contact.whatsapp, external: false },
       },
       footer: buildFooter("fr", "Routes"),
     },
@@ -457,7 +456,7 @@ const extraPartnershipByLocale: LocaleRecord<{
         body:
           "بعد ضبط هذا الاختبار للمغرب، يمكن تكرار نفس الشكل مع تغيير الثيم المحلي والمحتوى وملفات PNG فقط.",
         primary: { label: "Telegram", href: moroccoGlobals.contact.telegram, external: true },
-        secondary: { label: "WhatsApp", href: moroccoGlobals.contact.whatsapp, external: true },
+        secondary: { label: "Mail", href: moroccoGlobals.contact.whatsapp, external: false },
       },
       footer: buildFooter("ar", "المسارات"),
     },
@@ -562,8 +561,7 @@ export function getMoroccoHomeContent(locale: MoroccoLocale): HomeContent {
       secondary: {
         label: source.finalCta.secondary,
         href: moroccoGlobals.contact.whatsapp,
-        external: true,
-        iconSrc: "/whatsapp.png",
+        external: false,
       },
     },
     footer: buildFooter(locale, source.footer.routesLabel, source.footer.body),
@@ -655,10 +653,10 @@ export function getMoroccoPartnershipContent(locale: MoroccoLocale): Partnership
       title: dictionary.finalCta.title,
       body:
         direction === "rtl"
-          ? "استخدم تيليجرام أو واتساب للبدء بسرعة، ثم بدّل الأصول لاحقاً داخل نفس مسارات PNG المحددة مسبقاً."
+          ? "استخدم تيليجرام أو البريد للبدء بسرعة، ثم بدّل الأصول لاحقاً داخل نفس مسارات PNG المحددة مسبقاً."
           : locale === "fr"
-            ? "Utilisez Telegram ou WhatsApp pour demarrer vite, puis remplacez les PNG plus tard sans retoucher la structure."
-            : "Message the team on Telegram or WhatsApp, choose the route that fits, and start the conversation with a manager.",
+            ? "Utilisez Telegram ou email pour demarrer vite, puis remplacez les PNG plus tard sans retoucher la structure."
+            : "Message the team on Telegram or email, choose the route that fits, and start the conversation with a manager.",
       primary: {
         label: dictionary.finalCta.telegram,
         href: moroccoGlobals.contact.telegram,
@@ -668,8 +666,7 @@ export function getMoroccoPartnershipContent(locale: MoroccoLocale): Partnership
       secondary: {
         label: dictionary.finalCta.whatsapp,
         href: moroccoGlobals.contact.whatsapp,
-        external: true,
-        iconSrc: "/whatsapp.png",
+        external: false,
       },
     },
     footer: buildFooter(locale, dictionary.nav.joinUs, dictionary.footer.text),

@@ -4,11 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatedMarketLogo } from "@/components/logo";
 import { useLanguage } from "@/app/components/providers/LanguageProvider";
+import { moroccoGlobals } from "@/config/morocco.globals";
 import { getPlayerHomeContent } from "@/lib/player-home";
 
 const supportLinks = [
-  { href: "https://t.me/your_channel", key: "telegram", image: "/telegram.png" },
-  { href: "https://wa.me/your_number", key: "whatsapp", image: "/whatsapp.png" },
+  { href: moroccoGlobals.contact.telegram, key: "telegram", image: "/telegram.png" },
+  { href: moroccoGlobals.contact.email, key: "mail" },
 ] as const;
 
 export default function Footer() {
@@ -94,11 +95,13 @@ export default function Footer() {
                     <Link
                       key={item.key}
                       href={item.href}
-                      target="_blank"
-                      rel="noreferrer"
+                      target={item.key === "telegram" ? "_blank" : undefined}
+                      rel={item.key === "telegram" ? "noreferrer" : undefined}
                       className="inline-flex min-h-[44px] items-center gap-3 rounded-full border border-black/10 bg-white/80 px-4 text-[15px] text-[var(--color-black)]/72 transition-all duration-300 hover:-translate-y-[1px] hover:border-[var(--color-primary)]/25 hover:text-[var(--color-primary)]"
                     >
-                      <Image src={item.image} alt="" width={16} height={16} className="h-4 w-4 object-contain" />
+                      {"image" in item ? (
+                        <Image src={item.image} alt="" width={16} height={16} className="h-4 w-4 object-contain" />
+                      ) : null}
                       {item.key === "telegram" ? dictionary.finalCta.telegram : dictionary.finalCta.whatsapp}
                     </Link>
                   ))}
